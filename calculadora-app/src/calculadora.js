@@ -1,5 +1,5 @@
 import './calculadora.css';
-import { Jumbotron } from 'react-bootstrap';
+import { Jumbotron, Container, Row, Col, Button, Form } from 'react-bootstrap';
 
 function Calculadora() {
   return (
@@ -12,7 +12,22 @@ function Calculadora() {
         width: '400px',
       }}
     >
-      <h1>Teste</h1>
+      <Container>
+        <Row>
+          <Col xs="3">
+            <Button variant="danger">C</Button>
+          </Col>
+          <Col xs="9">
+            <Form.Control
+              type="text"
+              name="txtNumeros"
+              className="text-right"
+              readOnly="readOnly"
+              placeholder="Calculadora em ReactJS"
+            ></Form.Control>
+          </Col>
+        </Row>
+      </Container>
     </Jumbotron>
   );
 }
