@@ -1,13 +1,13 @@
 import CalculadoraService from './calculadora.service';
 
 describe('Teste do CalculadoraService', () => {
-  const [
+  const {
     calcular,
     SOMA,
     SUBTRACAO,
     DIVISAO,
     MULTIPLICACAO,
-  ] = CalculadoraService();
+  } = CalculadoraService();
 
   it('Deve garantir que 1 + 4 = 5', () => {
     const soma = calcular(1, 4, SOMA);
@@ -32,5 +32,29 @@ describe('Teste do CalculadoraService', () => {
   it('Deve retornar texto:"Operação inválida" para operações inválidas', () => {
     const operacaoInvalida = calcular(1, 4, '%');
     expect(operacaoInvalida).toEqual('Operação inválida');
+  });
+});
+
+describe('Teste do ConcatenarNumero', () => {
+  const { concatenarNumero } = CalculadoraService();
+
+  it('Deve reiniciar o valor caso contenha apenas "0" ou null', () => {
+    const retornarZero = concatenarNumero('0');
+    expect(retornarZero).toEqual('');
+  });
+
+  it('Deve retornar "0." quando o primeiro dígito for "."', () => {
+    const retornarZeroPonto = concatenarNumero('', '.');
+    expect(retornarZeroPonto).toEqual('0.');
+  });
+
+  it('Deve ignorar o ultimo ponto digitado se já ouver um', () => {
+    const doisPontosSeguidos = concatenarNumero('10.', '.');
+    expect(doisPontosSeguidos).toEqual('10.');
+  });
+
+  it('Deve retornar a concatenação de dois números', () => {
+    const concatenacao = concatenarNumero('1', '4');
+    expect(concatenacao).toEqual('14');
   });
 });
