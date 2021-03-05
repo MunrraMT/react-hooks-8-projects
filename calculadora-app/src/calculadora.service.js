@@ -2,6 +2,7 @@ function CalculadoraService() {
   const SOMA = '+';
   const SUBTRACAO = '-';
   const DIVISAO = '/';
+  const MULTIPLICACAO = '*';
 
   function calcular(numero1, numero2, operacao) {
     let resultado;
@@ -19,13 +20,18 @@ function CalculadoraService() {
         resultado = numero1 / numero2;
         break;
 
+      case MULTIPLICACAO:
+        resultado = numero1 * numero2;
+        break;
+
       default:
-        return 'Operação inválida';
+        resultado = 'Operação inválida';
+        break;
     }
 
     return resultado;
   }
-  return [calcular, SOMA, SUBTRACAO, DIVISAO];
+  return [calcular, SOMA, SUBTRACAO, DIVISAO, MULTIPLICACAO];
 }
 
 export default CalculadoraService;

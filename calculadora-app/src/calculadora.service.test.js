@@ -1,7 +1,13 @@
 import CalculadoraService from './calculadora.service';
 
 describe('Teste do CalculadoraService', () => {
-  const [calcular, SOMA, SUBTRACAO] = CalculadoraService();
+  const [
+    calcular,
+    SOMA,
+    SUBTRACAO,
+    DIVISAO,
+    MULTIPLICACAO,
+  ] = CalculadoraService();
 
   it('Deve garantir que 1 + 4 = 5', () => {
     const soma = calcular(1, 4, SOMA);
@@ -14,7 +20,17 @@ describe('Teste do CalculadoraService', () => {
   });
 
   it('Deve garantir que 1 / 4 = 0.25', () => {
-    const divisao = calcular(1, 4, '/');
+    const divisao = calcular(1, 4, DIVISAO);
     expect(divisao).toEqual(0.25);
+  });
+
+  it('Deve garantir que 1 * 4 = 4', () => {
+    const multiplicacao = calcular(1, 4, MULTIPLICACAO);
+    expect(multiplicacao).toEqual(4);
+  });
+
+  it('Deve retornar texto:"Operação inválida" para operações inválidas', () => {
+    const operacaoInvalida = calcular(1, 4, '%');
+    expect(operacaoInvalida).toEqual('Operação inválida');
   });
 });
