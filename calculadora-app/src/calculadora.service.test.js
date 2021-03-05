@@ -1,3 +1,5 @@
+import React from 'react';
+import ReactDOM from 'react-dom';
 import CalculadoraService from './calculadora.service';
 
 describe('Teste do CalculadoraService', () => {
@@ -38,9 +40,9 @@ describe('Teste do CalculadoraService', () => {
 describe('Teste do ConcatenarNumero', () => {
   const { concatenarNumero } = CalculadoraService();
 
-  it('Deve reiniciar o valor caso contenha apenas "0" ou null', () => {
-    const retornarZero = concatenarNumero('0');
-    expect(retornarZero).toEqual('');
+  it('Deve apagar o número "0" incial quando começar a digitar', () => {
+    const retornarZero = concatenarNumero('0', '5');
+    expect(retornarZero).toEqual('5');
   });
 
   it('Deve retornar "0." quando o primeiro dígito for "."', () => {

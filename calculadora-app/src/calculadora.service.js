@@ -34,7 +34,7 @@ function CalculadoraService() {
 
   function concatenarNumero(numAtual, numConcat) {
     // caso contenha apenas '0' ou null, reinicia o valor.
-    if (numAtual === '0' || numAtual === null) return '';
+    if (numAtual === '0' || numAtual === null) return numConcat;
     // primeiro digito for '.', concatena '0' antes do ponto.
     if (numAtual === '' && numConcat === '.') return '0.';
     // caso '.' digitado e já contenha um ponto, apenas retornar.
