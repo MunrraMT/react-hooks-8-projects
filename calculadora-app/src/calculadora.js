@@ -31,7 +31,19 @@ function Calculadora() {
   }
 
   function definirOperacao(op) {
-    setTxtNumeros(op);
+    // Apenas define a operção caso ela não exista
+    if (operacao === null) {
+      setOperacao(op);
+      return;
+    }
+    // Caso operação estiver definida e número 2 selecionado, realizar operação
+    if (numero2 !== null) {
+      const resultado = calcular(Number(numero1), Number(numero2), operacao);
+      setOperacao(op);
+      setNumero1(String(resultado));
+      setNumero2(null);
+      setTxtNumeros(String(resultado));
+    }
   }
 
   return (
@@ -138,7 +150,9 @@ function Calculadora() {
             </Button>
           </Col>
           <Col>
-            <Button variant="light">.</Button>
+            <Button variant="light" onClick={() => adicionarNumero('.')}>
+              .
+            </Button>
           </Col>
           <Col>
             <Button variant="success">=</Button>

@@ -46,7 +46,7 @@ describe('Teste do ConcatenarNumero', () => {
   });
 
   it('Deve retornar "0." quando o primeiro dígito for "."', () => {
-    const retornarZeroPonto = concatenarNumero('', '.');
+    const retornarZeroPonto = concatenarNumero('0', '.');
     expect(retornarZeroPonto).toEqual('0.');
   });
 

@@ -34,11 +34,12 @@ function CalculadoraService() {
 
   function concatenarNumero(numAtual, numConcat) {
     // caso contenha apenas '0' ou null, reinicia o valor.
-    if (numAtual === '0' || numAtual === null) return numConcat;
+    if ((numAtual === '0' || numAtual === null) && numConcat !== '.')
+      return numConcat;
     // primeiro digito for '.', concatena '0' antes do ponto.
-    if (numAtual === '' && numConcat === '.') return '0.';
+    if (numConcat === '.' && numAtual === '') return '0.';
     // caso '.' digitado e já contenha um ponto, apenas retornar.
-    if (numAtual.indexOf('.') > -1 && numConcat === '.') return numAtual;
+    if (numConcat === '.' && numAtual.indexOf('.') > -1) return numAtual;
 
     return numAtual + numConcat;
   }
