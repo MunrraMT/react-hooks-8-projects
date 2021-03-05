@@ -80,6 +80,7 @@ function Calculadora() {
           </Col>
           <Col xs="9">
             <Form.Control
+              data-testid="txtNumeros"
               type="text"
               name="txtNumeros"
               className="text-right"
