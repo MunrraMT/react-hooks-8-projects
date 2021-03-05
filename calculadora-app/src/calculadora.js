@@ -46,6 +46,19 @@ function Calculadora() {
     }
   }
 
+  function acaoCalcular() {
+    if (numero2 === null) return;
+    const resultado = calcular(Number(numero1), Number(numero2), operacao);
+    setTxtNumeros(resultado);
+  }
+
+  function limpar() {
+    setTxtNumeros('0');
+    setNumero1('0');
+    setNumero2(null);
+    setOperacao(null);
+  }
+
   return (
     <Jumbotron
       style={{
@@ -61,7 +74,9 @@ function Calculadora() {
       <Container>
         <Row>
           <Col xs="3">
-            <Button variant="danger">C</Button>
+            <Button variant="danger" onClick={limpar}>
+              C
+            </Button>
           </Col>
           <Col xs="9">
             <Form.Control
@@ -155,7 +170,9 @@ function Calculadora() {
             </Button>
           </Col>
           <Col>
-            <Button variant="success">=</Button>
+            <Button variant="success" onClick={acaoCalcular}>
+              =
+            </Button>
           </Col>
           <Col>
             <Button variant="warning" onClick={() => definirOperacao('+')}>
