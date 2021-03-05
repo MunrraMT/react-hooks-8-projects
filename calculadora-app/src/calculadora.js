@@ -1,7 +1,10 @@
+import { useState } from 'react';
 import './calculadora.css';
 import { Jumbotron, Container, Row, Col, Button, Form } from 'react-bootstrap';
 
 function Calculadora() {
+  const [txtNumeros, setTxtNumeros] = useState('0');
+
   return (
     <Jumbotron
       style={{
@@ -12,6 +15,8 @@ function Calculadora() {
         width: '400px',
       }}
     >
+      <h3 className="text-center text-white">Calculadora em ReactJS</h3>
+
       <Container>
         <Row>
           <Col xs="3">
@@ -23,7 +28,7 @@ function Calculadora() {
               name="txtNumeros"
               className="text-right"
               readOnly="readOnly"
-              placeholder="Calculadora em ReactJS"
+              value={txtNumeros}
             ></Form.Control>
           </Col>
         </Row>
