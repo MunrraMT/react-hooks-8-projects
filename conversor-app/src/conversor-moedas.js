@@ -11,11 +11,17 @@ function ConversorMoedas() {
         <Form>
           <Form.Row>
             <Col sm="3">
-              <Form.Control placeholder="0" value={1} required />
+              <Form.Control placeholder="0" value={'1'} required />
             </Col>
-            <Col sm="3"></Col>
-            <Col sm="1"></Col>
-            <Col sm="3"></Col>
+            <Col sm="3">
+              <Form.Control as="select"></Form.Control>
+            </Col>
+            <Col sm="1" className="text-center" style={{ paddingTop: '5px' }}>
+              <FontAwesomeIcon icon={faAngleDoubleRight} />
+            </Col>
+            <Col sm="3">
+              <Form.Control as="select"></Form.Control>
+            </Col>
             <Col sm="2"></Col>
           </Form.Row>
         </Form>
